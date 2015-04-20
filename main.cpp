@@ -2,11 +2,7 @@
 #include <qapplication.h>
 #include "viewer.h"
 #include "dynamicSystem.h"
-#include "cube.h"
-#include "head.h"
-#include "neck.h"
-#include "body.h"
-#include "leg.h"
+#include "dragon.h"
 #include "conicalFrustrum.h"
 
 
@@ -19,7 +15,7 @@ int main(int argc, char** argv)
 	Viewer viewer;
 
 	// build your scene here
-    viewer.addRenderable(new Leg());
+    viewer.addRenderable(new Dragon());
 
 	viewer.setWindowTitle("viewer");
 	// Make the viewer window visible on screen.
