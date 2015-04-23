@@ -10,12 +10,18 @@ void Tail::draw()
     glPushMatrix();
 
     int tailCurvature = 3; // <-- value to change to animate
-
+    float tailLength = 6;
+    float tailThickness = 1.6;
 
     for(int i = 0; i < 20; i++)
     {
-        glutSolidCone(1.6-(i*0.07), 1.8, 20, 20);
-        glTranslatef(0, 0, 0.3);
+        ConicalFrustrum *conicalFrustrum = new ConicalFrustrum(tailThickness-((tailThickness/20)*i),(tailThickness-((tailThickness/20)*i)) / 2, tailLength / 2);
+        //glutSolidCone((tailThickness-((tailThickness/20)*i)), tailLength, 20, 20);
+        glRotatef(-90, 1, 0, 0);
+        conicalFrustrum->draw();
+        glRotatef(90, 1, 0, 0);
+        free(conicalFrustrum);
+        glTranslatef(0, 0, tailLength/20);
         glRotatef(-tailCurvature, 1, 0, 0);
     }
 

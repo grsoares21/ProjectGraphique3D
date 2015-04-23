@@ -1,6 +1,7 @@
 #include "leg.h"
 Leg::Leg()
 {
+    animationStep = 0;
 }
 
 
@@ -23,6 +24,7 @@ void Leg::draw()
     glTranslatef(0, -0.5, 0);
 
     //Knee
+    glRotatef(40*(cos(-animationStep+90)-0.5), 0, 0, 1);
     glutSolidSphere(0.25, 50, 50);
 
     glRotatef(80, 0, 0, 1);
@@ -30,7 +32,7 @@ void Leg::draw()
 
     //Lower leg
     conicalFrustrum = new ConicalFrustrum(0.25, 0.125, 0.75);
-    conicalFrustrum->draw();
+    conicalFrustrum->draw();    
 
     free(conicalFrustrum);
 
@@ -80,4 +82,11 @@ void Leg::draw()
 
 
     glPopMatrix();
+}
+
+
+
+void Leg::animate(float animationStep)
+{
+    this->animationStep = animationStep;
 }
