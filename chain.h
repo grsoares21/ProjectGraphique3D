@@ -18,7 +18,7 @@
  * The initial scene is composed of a fixed plane, a static particle
  * that can be controlled by the mouse, and a dynamic particle.
  */
-class DynamicSystem : public Renderable
+class Chain : public Renderable
 {
 
 private:
@@ -56,8 +56,8 @@ private:
 
 
 public:
-	DynamicSystem();	// TODO add general parameters (viscosity...)
-	virtual ~DynamicSystem();
+    Chain();	// TODO add general parameters (viscosity...)
+    virtual ~Chain();
 
 	// Position of the firt particle can be set through mouse movements
 	const qglviewer::Vec &getFixedParticlePosition() const;

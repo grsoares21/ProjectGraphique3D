@@ -4,6 +4,8 @@
 #include <GLUT/glut.h>
 #endif
 
+#include <iostream>
+
 #include "particle.h"
 
 Particle::Particle(qglviewer::Vec pos, qglviewer::Vec vel, double m, double r)
@@ -71,7 +73,7 @@ void Particle::draw() const
 {
 	glPushMatrix();
 	glTranslatef(position.x, position.y, position.z);
-	glutSolidSphere(radius, 12, 12);
+    glutSolidSphere(radius, 12, 12);
 	glPopMatrix();
 
 }

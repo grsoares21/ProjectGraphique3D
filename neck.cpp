@@ -3,6 +3,12 @@
 Neck::Neck()
 {
     head = new Head();
+    chain = new Chain();
+}
+
+void Neck::init(Viewer &viewer)
+{
+    chain->init(viewer);
 }
 
 void Neck::draw()
@@ -20,9 +26,9 @@ void Neck::draw()
         glTranslatef(0, 0.25, 0);
         glRotatef(neckCurvature, 0, 0, 1);
     }
-
     glutSolidSphere(0.3, 30, 30);
     glRotatef(-6*neckCurvature, 0, 0, 1);
+    chain->draw();
 
 
     glTranslatef(-0.65, 0, 0);
@@ -34,4 +40,5 @@ void Neck::animate(float animationStep)
 {
     this->animationStep = animationStep;
     head->animate(animationStep);
+    chain->animate();
 }

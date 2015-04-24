@@ -13,6 +13,7 @@
 #include "head.h"
 #include "cylinder.h"
 #include "cube.h"
+#include "chain.h"
 
 class Neck : public Renderable
 {
@@ -20,6 +21,7 @@ class Neck : public Renderable
 private:
     float animationStep;
     Head *head;
+    Chain *chain;
 
 //Constructor
 public:
@@ -29,6 +31,7 @@ public:
 public:
     void draw();
     void animate(float animationStep);
+    void init(Viewer &);
 };
 
 #endif // NECK_H

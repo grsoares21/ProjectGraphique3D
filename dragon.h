@@ -31,12 +31,14 @@ private:
     Leg *backLeftLeg;
     Leg *backRightLeg;
 
+
 //Constructor
 public:
     Dragon();
 
 //Renderable Methods
 public:
+    void init(Viewer &);
     void draw();
     void animate();
 };

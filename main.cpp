@@ -1,7 +1,6 @@
 
 #include <qapplication.h>
 #include "viewer.h"
-#include "dynamicSystem.h"
 #include "dragon.h"
 #include "conicalFrustrum.h"
 
