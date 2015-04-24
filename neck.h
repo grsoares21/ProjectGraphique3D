@@ -1,6 +1,8 @@
 #ifndef NECK_H
 #define NECK_H
 
+#include<math.h>
+
 #include "renderable.h"
 #ifndef __APPLE__
 #include <GL/glut.h>
@@ -16,6 +18,7 @@ class Neck : public Renderable
 {
 //Components
 private:
+    float animationStep;
     Head *head;
 
 //Constructor
@@ -25,6 +28,7 @@ public:
 //Renderable Methods
 public:
     void draw();
+    void animate(float animationStep);
 };
 
 #endif // NECK_H

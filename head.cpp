@@ -23,7 +23,7 @@ void Head::draw()
         glPushMatrix();
 
         glTranslatef(1, 0, 0);
-        glRotatef(0,0,0,1); // <- relative angle to animate
+        glRotatef(-sin(animationStep)*25,0,0,1); // <- relative angle to animate
         glTranslatef(-1, 0, 0);
 
         jaw->draw();
@@ -71,6 +71,11 @@ void Head::draw()
         glEnd();
 
         glPopMatrix();
+}
+
+void Head::animate(float animationStep)
+{
+    this->animationStep = animationStep;
 }
 
 

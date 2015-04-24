@@ -8,6 +8,7 @@
 #include <GLUT/glut.h>
 #endif
 
+#include "conicalFrustrum.h"
 
 class Tail : public Renderable
 {

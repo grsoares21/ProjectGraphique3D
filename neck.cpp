@@ -9,7 +9,7 @@ void Neck::draw()
 {
     glPushMatrix();
 
-    int neckCurvature = 8; // <--- value to change to animate
+    float neckCurvature = 8 - (sin(animationStep)) * 4;
 
     for(int i = 0; i < 6; i++)
     {
@@ -28,4 +28,10 @@ void Neck::draw()
     glTranslatef(-0.65, 0, 0);
     head->draw();
     glPopMatrix();
+}
+
+void Neck::animate(float animationStep)
+{
+    this->animationStep = animationStep;
+    head->animate(animationStep);
 }

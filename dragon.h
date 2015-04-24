@@ -1,6 +1,8 @@
 #ifndef DRAGON_H
 #define DRAGON_H
 
+#include <math.h>
+
 #include "renderable.h"
 #ifndef __APPLE__
 #include <GL/glut.h>
@@ -15,6 +17,9 @@
 
 class Dragon : public Renderable
 {
+//Attributes
+private:
+    float animationStep;
 //Components
 private:
     Body *body;
@@ -33,6 +38,7 @@ public:
 //Renderable Methods
 public:
     void draw();
+    void animate();
 };
 
 #endif // DRAGON_H

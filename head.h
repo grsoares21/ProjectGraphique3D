@@ -1,6 +1,7 @@
 #ifndef HEAD_H
 #define HEAD_H
 
+#include <math.h>
 
 #include "renderable.h"
 #ifndef __APPLE__
@@ -15,6 +16,9 @@
 
 class Head : public Renderable
 {
+//Attributes
+private:
+    float animationStep;
 //Components
 private:
     Ears *ears;
@@ -29,6 +33,7 @@ public:
 //Renderable Methods
 public:
     void draw();
+    void animate(float animationStep);
 
 };
 
