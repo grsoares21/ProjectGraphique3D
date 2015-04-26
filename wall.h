@@ -1,6 +1,5 @@
-#ifndef PILAR_H
-#define PILAR_H
-
+#ifndef WALL_H
+#define WALL_H
 
 #include "renderable.h"
 #ifndef __APPLE__
@@ -9,25 +8,22 @@
 #include <GLUT/glut.h>
 #endif
 
-#include "cylinder.h"
-#include "torch.h"
-#include "conicalFrustrum.h"
+#include <QGLViewer/vec.h>
 
-class Pilar : public Renderable
+class Wall : public Renderable
 {
-    // Attributes
+//Attributes
 private:
-    Torch *torch;
+    float Xsize, Ysize;
 //Constructor
 public:
-    Pilar(bool addTorch);
+    Wall(float Xsize, float Ysize);
 
 //Renderable Methods
 public:
     void init(Viewer &);
     void draw();
     void animate();
-    int size, thickness;
 };
 
-#endif 
+#endif // WALL_H

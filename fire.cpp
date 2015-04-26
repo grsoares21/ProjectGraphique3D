@@ -165,7 +165,7 @@ void Fire::animate()
 			if (particle[loop].life<0.0f)					// If Particle Is Burned Out
 			{
 				particle[loop].life=1.0f;					// Give It New Life
-				particle[loop].fade=float(rand()%100)/1000.0f+0.003f;	// Random Fade Value
+                particle[loop].fade=float(rand()%100)/1000.0f+0.012f;	// Random Fade Value
 				particle[loop].x=0.0f;						// Center On X Axis
 				particle[loop].y=0.0f;						// Center On Y Axis
 				particle[loop].z=0.0f;						// Center On Z Axis

@@ -1,7 +1,7 @@
-#ifndef LEG_H
-#define LEG_H
+#ifndef WING_H
+#define WING_H
 
-#include <math.h>
+#include<math.h>
 
 #include "renderable.h"
 #ifndef __APPLE__
@@ -10,22 +10,25 @@
 #include <GLUT/glut.h>
 #endif
 
-#include "conicalFrustrum.h"
+#include "cylinder.h"
+#include "cube.h"
 
-class Leg : public Renderable
+class Wing : public Renderable
 {
-//Attributes
+//Components
 private:
     float animationStep;
 
 //Constructor
 public:
-    Leg();
+    Wing();
 
 //Renderable Methods
 public:
     void draw();
     void animate(float animationStep);
+    void init(Viewer &);
 };
 
-#endif // LEG_H
+
+#endif // WING_H

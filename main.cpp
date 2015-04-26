@@ -4,6 +4,11 @@
 
 #include <qapplication.h>
 
+#include "fire.h"
+#include "teapot.h"
+#include "wing.h"
+#include "globalScene.h"
+
 
 int main(int argc, char** argv)
 {
@@ -16,6 +21,7 @@ int main(int argc, char** argv)
 
 	// build your scene here
     viewer.addRenderable(new Dragon());
+
 	
 	viewer.setWindowTitle("viewer");
 	// Make the viewer window visible on screen.

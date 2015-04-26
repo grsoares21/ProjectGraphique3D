@@ -15,6 +15,11 @@
 #include <GLUT/glut.h>
 #endif
 
+#include "body.h"
+#include "leg.h"
+#include "tail.h"
+#include "neck.h"
+#include "wing.h"
 
 class Dragon : public Renderable
 {
@@ -27,6 +32,8 @@ private:
     Neck *neck;
     Tail *tail;
 
+    Wing *rightWing;
+    Wing *leftWing;
     Leg *frontLeftLeg;
     Leg *frontRightLeg;
     Leg *backLeftLeg;
