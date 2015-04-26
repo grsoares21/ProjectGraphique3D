@@ -10,14 +10,7 @@
 #include "particle.h"
 #include "renderable.h"
 
-/*
- * This class represents a dynamic system made of particles
- * linked together with damped springs, within a medium with
- * gravity and viscosity.
- * Particles a represented by small spheres, with a radius and a mass.
- * The initial scene is composed of a fixed plane, a static particle
- * that can be controlled by the mouse, and a dynamic particle.
- */
+
 class Chain : public Renderable
 {
 

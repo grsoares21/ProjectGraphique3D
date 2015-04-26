@@ -3,6 +3,8 @@
 
 #include<math.h>
 
+#include "head.h"
+
 #include "renderable.h"
 #ifndef __APPLE__
 #include <GL/glut.h>
@@ -10,7 +12,7 @@
 #include <GLUT/glut.h>
 #endif
 
-#include "head.h"
+#include <math.h>
 #include "cylinder.h"
 #include "cube.h"
 #include "chain.h"

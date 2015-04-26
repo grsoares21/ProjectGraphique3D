@@ -3,6 +3,9 @@
 
 
 #include "renderable.h"
+//#include "shader.h"
+//#include "material.h"
+
 #ifndef __APPLE__
 #include <GL/glut.h>
 #else

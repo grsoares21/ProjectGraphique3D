@@ -31,6 +31,7 @@ void Dragon::draw()
         glTranslatef(0, sin((-animationStep*2)+60)/3, 0);
         body->draw();
 
+        glColor3f(0.0, 0.1, 0.0);
         glTranslatef(-2.5, -1, 1.0);
         glRotatef(40*(sin(-animationStep)+0.3), 0, 0, 1);
         glScalef(2, 2, 2);
@@ -63,6 +64,7 @@ void Dragon::draw()
         glScalef(0.5, 0.5, 0.5);
         glRotatef(-40*(sin(-animationStep)+0.3), 0, 0, 1);
         glTranslatef(-2.5, 1, 1.0);
+        glColor3f(1.0, 1.0, 1.0);
 
         glTranslatef(3.5, -1, 0);
         glRotatef(90, 0, 1, 0);
@@ -91,4 +93,6 @@ void Dragon::animate()
     backRightLeg->animate(animationStep-180);
 
     neck->animate(animationStep);
+
+    tail->animate(animationStep);
 }

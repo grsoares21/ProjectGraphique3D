@@ -10,13 +10,29 @@ Head::Head()
     upperTeeth = new UpperTeeth();
 }
 
+void Head::init(Viewer &viewer)
+{
+
+    ears->init(viewer);
+    jaw->init(viewer);
+
+    texture = new Texture("./textures/scales.png");
+    shader = new Shader("./shaders/texture");
+
+    texture0 = glGetUniformLocation( shader->m_program, "texture0");
+    texcoord0 = glGetAttribLocation( shader->m_program, "texcoord0");
+    glUniform1i(texture0, 0 );
+
+}
+
 
 void Head::draw()
 {
         glPushMatrix();
 
+
+
         glTranslatef(-0.5, 0, 0);
-        glEnable(GL_NORMALIZE);
 
         ears->draw();
 
@@ -34,41 +50,61 @@ void Head::draw()
 
         eyes->draw();
 
+        shader->Bind();
+        texture->Bind(0);
+
+        glUniform1i(texture0, 0);
+
         //Draw base format of the skull
         glBegin(GL_TRIANGLES);
-
-
-           glNormal3f(-0.25, 0.0, 0.5);
-           glVertex3f(0.0, 0.0, 0.0);
-           glVertex3f(1.0, 0.0, 0.5);
-           glVertex3f(1.0, 0.5, 0.5);
-
-           glNormal3f(-0.5, 1.0, 0.0);
-           glVertex3f(0.0, 0.0, 0.0);
-           glVertex3f(1.0, 0.5, -0.5);
-           glVertex3f(1.0, 0.5, 0.5);
-
-           glNormal3f(-0.25, 0.0, -0.5);
-           glVertex3f(0.0, 0.0, 0.0);
-           glVertex3f(1.0, 0.5, -0.5);
-           glVertex3f(1.0, 0, -0.5);
 
            glNormal3f(0.0, -1.0, 0.0);
            glVertex3f(0.0, 0.0, 0.0);
            glVertex3f(1.0, 0, 0.5);
            glVertex3f(1.0, 0, -0.5);
 
+           glNormal3f(-0.25, 0.0, 0.5);
+           glVertexAttrib2f(texcoord0, 0, 0);
+           glVertex3f(0.0, 0.0, 0.0);
+           glVertexAttrib2f(texcoord0, 0, 1);
+           glVertex3f(1.0, 0.0, 0.5);
+           glVertexAttrib2f(texcoord0, 1, 0.5);
+           glVertex3f(1.0, 0.5, 0.5);
+
+           glNormal3f(-0.5, 1.0, 0.0);
+           glVertexAttrib2f(texcoord0, 0, 0);
+           glVertex3f(0.0, 0.0, 0.0);
+           glVertexAttrib2f(texcoord0, 0, 1);
+           glVertex3f(1.0, 0.5, -0.5);
+           glVertexAttrib2f(texcoord0, 1, 0.5);
+           glVertex3f(1.0, 0.5, 0.5);
+
+           glNormal3f(-0.25, 0.0, -0.5);
+           glVertexAttrib2f(texcoord0, 0, 0);
+           glVertex3f(0.0, 0.0, 0.0);
+           glVertexAttrib2f(texcoord0, 0, 1);
+           glVertex3f(1.0, 0.5, -0.5);
+           glVertexAttrib2f(texcoord0, 1, 0.5);
+           glVertex3f(1.0, 0, -0.5);
+
+
         glEnd();
 
         glBegin(GL_QUADS);
 
             glNormal3f(1.0, 0.0, 0.0);
+            glVertexAttrib2f(texcoord0, 0, 0);
             glVertex3f(1.0, 0.5, 0.5);
+            glVertexAttrib2f(texcoord0, 0, 1);
             glVertex3f(1.0, 0, 0.5);
+            glVertexAttrib2f(texcoord0, 1, 0);
             glVertex3f(1.0, 0, -0.5);
+            glVertexAttrib2f(texcoord0, 1, 1);
             glVertex3f(1.0, 0.5, -0.5);
 
         glEnd();
+
+        glUseProgram(0);
 
         glPopMatrix();
 }

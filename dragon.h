@@ -3,6 +3,11 @@
 
 #include <math.h>
 
+#include "neck.h"
+#include "body.h"
+#include "leg.h"
+#include "tail.h"
+
 #include "renderable.h"
 #ifndef __APPLE__
 #include <GL/glut.h>
@@ -10,10 +15,6 @@
 #include <GLUT/glut.h>
 #endif
 
-#include "body.h"
-#include "leg.h"
-#include "tail.h"
-#include "neck.h"
 
 class Dragon : public Renderable
 {

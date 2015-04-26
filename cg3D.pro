@@ -8,7 +8,7 @@ HEADERS  = *.h
 SOURCES  = *.cpp
 
 macx:LIBS *= -framework Glut
-linux-g++*:LIBS *= -lglut -lGLEW
+linux-g++*:LIBS *= -lGLEW -lglut
 
 # MacOS, default
 QGL = -lqglviewer

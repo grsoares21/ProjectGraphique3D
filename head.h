@@ -3,6 +3,10 @@
 
 #include <math.h>
 
+#include "ears.h"
+#include "jaw.h"
+#include "eyes.h"
+
 #include "renderable.h"
 #ifndef __APPLE__
 #include <GL/glut.h>
@@ -10,21 +14,23 @@
 #include <GLUT/glut.h>
 #endif
 
-#include "ears.h"
-#include "jaw.h"
-#include "eyes.h"
 
 class Head : public Renderable
 {
 //Attributes
 private:
     float animationStep;
+    GLint texture0;
+    GLint texcoord0;
 //Components
 private:
     Ears *ears;
     Jaw *jaw;
     Eyes *eyes;
     UpperTeeth *upperTeeth;
+    Texture *texture;
+    Shader *shader;
+
 //Constructor
 public:
     Head();
@@ -32,6 +38,7 @@ public:
 
 //Renderable Methods
 public:
+    void init(Viewer &);
     void draw();
     void animate(float animationStep);
 

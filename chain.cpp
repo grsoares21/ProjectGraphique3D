@@ -16,7 +16,7 @@ Chain::Chain()
     groundNormal(0.0, 0.0, 1.0),
     rebound(0.5)
 {
-    // default values reset in init()
+
 }
 
 Chain::~Chain()
@@ -67,7 +67,7 @@ void Chain::setCollisionsDetection(bool onOff)
 }
 
 
-///////////////////////////////////////////////////////////////////////////////
+
 void Chain::init(Viewer &viewer)
 {
     toggleGravity = true;
@@ -149,6 +149,7 @@ void Chain::draw()
     glPushMatrix();
     glPushAttrib(GL_COLOR_BUFFER_BIT);
     glPushAttrib(GL_CURRENT_BIT);
+
 	// Particles
 	glColor3f(1,0,0);
 	std::vector<Particle *>::iterator itP;
@@ -158,11 +159,12 @@ void Chain::draw()
 
 	// Springs
 	glColor3f(1.0, 0.28, 0.0);
-	glLineWidth(5.0);
+    glLineWidth(5.0);
 	std::vector<Spring *>::iterator itS;
 	for (itS = springs.begin(); itS != springs.end(); ++itS) {
 		(*itS)->draw();
 	}
+    glColor3f(1.0, 1.0, 1.0);
 
     glPopAttrib();
     glPopAttrib();

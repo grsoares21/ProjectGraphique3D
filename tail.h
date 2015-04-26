@@ -1,6 +1,8 @@
 #ifndef TAIL_H
 #define TAIL_H
 
+#include <math.h>
+
 #include "renderable.h"
 #ifndef __APPLE__
 #include <GL/glut.h>
@@ -19,6 +21,11 @@ public:
 //Renderable Methods
 public:
     void draw();
+    void animate(float animationStep);
+
+//Attributes
+private:
+    float animationStep;
 };
 
 #endif // TAIL_H

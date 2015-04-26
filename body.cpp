@@ -14,6 +14,7 @@ void Body::draw()
 
     glRotatef(-90, 0, 0, 1);
 
+    glColor3f(0.0, 0.3, 0.0);
     ConicalFrustrum *conicalFrustrum = new ConicalFrustrum(2, 1.5, 2);
     conicalFrustrum->draw();
 
@@ -40,5 +41,6 @@ void Body::draw()
 
     free(conicalFrustrum);
 
+    glColor3f(1.0, 1.0, 1.0);
     glPopMatrix();
 }
