@@ -1,5 +1,5 @@
-#ifndef NECK_H
-#define NECK_H
+#ifndef WING_H
+#define WING_H
 
 #include<math.h>
 
@@ -10,22 +10,18 @@
 #include <GLUT/glut.h>
 #endif
 
-#include "head.h"
 #include "cylinder.h"
 #include "cube.h"
-#include "chain.h"
 
-class Neck : public Renderable
+class Wing : public Renderable
 {
 //Components
 private:
     float animationStep;
-    Head *head;
-    Chain *chain;
 
 //Constructor
 public:
-    Neck();
+    Wing();
 
 //Renderable Methods
 public:
@@ -34,4 +30,5 @@ public:
     void init(Viewer &);
 };
 
-#endif // NECK_H
+
+#endif // WING_H

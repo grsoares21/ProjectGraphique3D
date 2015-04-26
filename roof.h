@@ -1,6 +1,5 @@
-#ifndef TORCH_H
-#define TORCH_H
-
+#ifndef ROOF_H
+#define ROOF_H
 
 #include "renderable.h"
 #ifndef __APPLE__
@@ -10,18 +9,15 @@
 #endif
 
 #include <QGLViewer/vec.h>
-#include "cylinder.h"
-#include "fire.h"
 
-class Torch : public Renderable
+class Roof : public Renderable
 {
 //Attributes
 private:
-    float size;
-    Fire *fire;
+    float Xsize, Zsize, height;
 //Constructor
 public:
-    Torch(float s);
+    Roof(float Xsize, float Zsize, float height);
 
 //Renderable Methods
 public:
@@ -29,5 +25,4 @@ public:
     void draw();
     void animate();
 };
-
-#endif 
+#endif // ROOF_H

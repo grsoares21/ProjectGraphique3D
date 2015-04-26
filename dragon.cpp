@@ -7,7 +7,8 @@ Dragon::Dragon()
     body = new Body();
     neck = new Neck();
     tail = new Tail();
-
+    rightWing = new Wing();
+    leftWing = new Wing();
     frontLeftLeg = new Leg();
     frontRightLeg = new Leg();
     backLeftLeg = new Leg();
@@ -75,8 +76,18 @@ void Dragon::draw()
         glTranslatef(-3.2, 1.2, 0);
         glScalef(2, 1.3, 2);
         neck->draw();
-        glScalef(1/2, 1/1.3, 1/2);
-        glTranslatef(3.2, -1.2, 0);
+        glScalef(0.5, 1/1.3, 0.5);
+        glTranslatef(0, 0.6, 0.7);
+
+    glPopMatrix();
+    glPushMatrix();
+        glRotatef(270, 0, 1, 0);
+
+        glTranslatef(1, 1, 2.5);
+        rightWing->draw();
+        glTranslatef(-2, 0, 0);
+        glScalef(-1, 1, 1);
+        leftWing->draw();
 
     glPopMatrix();
 }
@@ -89,6 +100,7 @@ void Dragon::animate()
     frontRightLeg->animate(animationStep+180);
     backLeftLeg->animate(animationStep+180);
     backRightLeg->animate(animationStep-180);
-
+    rightWing->animate(animationStep);
+    leftWing->animate(animationStep);
     neck->animate(animationStep);
 }

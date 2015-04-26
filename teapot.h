@@ -1,6 +1,5 @@
-#ifndef PILAR_H
-#define PILAR_H
-
+#ifndef TEAPOT_H
+#define TEAPOT_H
 
 #include "renderable.h"
 #ifndef __APPLE__
@@ -9,25 +8,24 @@
 #include <GLUT/glut.h>
 #endif
 
+#include <QGLViewer/vec.h>
 #include "cylinder.h"
-#include "torch.h"
-#include "conicalFrustrum.h"
+#include "smoke.h"
 
-class Pilar : public Renderable
+class TeaPot : public Renderable
 {
-    // Attributes
+//Attributes
 private:
-    Torch *torch;
+    Smoke *smoke;
 //Constructor
 public:
-    Pilar(bool addTorch);
+    TeaPot();
 
 //Renderable Methods
 public:
     void init(Viewer &);
     void draw();
     void animate();
-    int size, thickness;
 };
 
-#endif 
+#endif // TEAPOT_H

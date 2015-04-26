@@ -3,15 +3,15 @@ TARGET   = cg3D
 CONFIG  += qt opengl warn_on debug
 QT *= xml opengl 
 
-HEADERS  = *.h
+HEADERS  = *.h \
 
-SOURCES  = *.cpp
+SOURCES  = *.cpp \
 
 macx:LIBS *= -framework Glut
 linux-g++*:LIBS *= -lglut -lGLEW
 
 # MacOS, default
-QGL = -lqglviewer
+QGL = -lQGLViewer
 
 # Some Ubuntu variants
 exists( /usr/lib/libqglviewer-qt4.so): QGL = -lqglviewer-qt4

@@ -1,5 +1,4 @@
 #include "torch.h"
-#include <iostream>
 
 Torch::Torch(float s)
 {
