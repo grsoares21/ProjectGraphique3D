@@ -3,9 +3,9 @@ TARGET   = cg3D
 CONFIG  += qt opengl warn_on debug
 QT *= xml opengl 
 
-HEADERS  = *.h \
+HEADERS  = *.h
 
-SOURCES  = *.cpp \
+SOURCES  = *.cpp
 
 macx:LIBS *= -framework Glut
 linux-g++*:LIBS *= -lGLEW -lglut
