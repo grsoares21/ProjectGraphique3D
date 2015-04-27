@@ -6,7 +6,7 @@ TeaPot::TeaPot()
 
 void TeaPot::init(Viewer &viewer)
 {
-    smoke = new Smoke(1.0);
+    smoke = new Smoke(10.0);
     smoke->init(viewer);
 }
 
@@ -15,7 +15,7 @@ void TeaPot::draw()
 {
     glPushMatrix();
     glutSolidTeapot(1);
-    if (this->animationStep > 68){
+    if (this->animationStep > 70){
         glTranslatef(1.6f, 0.5f, 0);
         glRotatef(270, 0, 0, 1);
         glScalef(0.1f, 0.1f, 0.1f);

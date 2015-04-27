@@ -35,7 +35,8 @@ void GlobalScene::init(Viewer &viewer)
        walls[i] = new Wall(50,50);
        walls[i]->init(viewer);
     }
-
+    skybox = new Skybox();
+    skybox->init(viewer);
 
  }
 
@@ -53,7 +54,7 @@ void GlobalScene::drawPillarsAndTorches(){
         pilars[i]->draw();
         glTranslatef(step,0,0);
     }
-    glTranslatef(10,70,0);
+    glTranslatef(18,70,0);
     step = 7;
     for (int i = 10; i < 13 ; i++){
         pilars[i]->draw();
@@ -79,6 +80,16 @@ void GlobalScene::drawGround(){
     glPopMatrix();
 }
 
+
+void GlobalScene::drawSkybox(){
+    //glPushMatrix();
+    glScalef(2000,2000,2000);
+    skybox->draw();
+    glScalef(0.0005,0.0005,0.0005);
+
+    //glPopMatrix();
+}
+
 void GlobalScene::drawWalls(){
     glPushMatrix();
 
@@ -99,6 +110,7 @@ void GlobalScene::drawWalls(){
 
 void GlobalScene::draw()
 {
+    drawSkybox();
     drawGround();
     drawWalls();
     drawPillarsAndTorches();

@@ -1,5 +1,5 @@
-#ifndef GROUND_H
-#define GROUND_H
+#ifndef SKYBOX_H
+#define SKYBOX_H
 
 #include "renderable.h"
 #include "glCheck.h"
@@ -13,18 +13,17 @@
 #include <GLUT/glut.h>
 #endif
 
-class Ground : public Renderable
+class Skybox : public Renderable
 {
 //Attributes
 private:
-    float Xsize, Zsize;
     Texture *texture;
     Shader *shader;
     GLint texture0, texcoord0;
 
 //Constructor
 public:
-    Ground(float Xsize, float Zsize);
+    Skybox();
 
 //Renderable Methods
 public:
@@ -33,4 +32,5 @@ public:
     void animate();
 };
 
-#endif // GROUND_H
+
+#endif // SKYBOX_H
