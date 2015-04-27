@@ -16,7 +16,7 @@ void Head::init(Viewer &viewer)
     fire->init(viewer);
     ears->init(viewer);
     jaw->init(viewer);
-    texture = new Texture("./textures/scales.png");
+    texture = new Texture("./Data/scales.png");
     shader = new Shader("./shaders/texture");
 
     texture0 = glGetUniformLocation( shader->m_program, "texture0");
@@ -44,11 +44,11 @@ void Head::draw()
         } else if(animationStep >= 64 && animationStep < 80)
         {
 
-            glRotatef(90,1, 0, 0);
             glRotatef(20,0, 0, 1);
+            glRotatef(90,1, 0, 0);
             fire->draw();
-            glRotatef(-20,0, 0, 1);
             glRotatef(-90,1, 0, 0);
+            glRotatef(-20,0, 0, 1);
 
             glTranslatef(1, 0, 0);
             glRotatef(-sin(64/1.5)*25,0,0,1); // <- relative angle to animate

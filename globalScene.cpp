@@ -1,12 +1,12 @@
 #include "globalScene.h"
 
-
 GlobalScene::GlobalScene()
 {
 }
 
 void GlobalScene::init(Viewer &viewer)
 {
+
     animationStep=0;
 
     for (int i = 0; i < 10; i++){
@@ -110,6 +110,7 @@ void GlobalScene::drawWalls(){
 
 void GlobalScene::draw()
 {
+
     drawSkybox();
     drawGround();
     drawWalls();
