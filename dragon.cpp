@@ -20,6 +20,8 @@ Dragon::Dragon()
 void Dragon::init(Viewer &viewer)
 {
     neck->init(viewer);
+    rightWing->init(viewer);
+    leftWing->init(viewer);
 }
 
 

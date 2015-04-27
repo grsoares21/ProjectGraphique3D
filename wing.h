@@ -1,6 +1,10 @@
 #ifndef WING_H
 #define WING_H
 
+#include "glCheck.h"
+#include "texture.h"
+#include "shader.h"
+
 #include<math.h>
 
 #include "renderable.h"
@@ -28,6 +32,11 @@ public:
     void draw();
     void animate(float animationStep);
     void init(Viewer &);
+    Texture *texture;
+    Shader *shader;
+
+    GLint texture0;
+    GLint texcoord0;
 };
 
 

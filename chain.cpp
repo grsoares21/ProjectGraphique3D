@@ -82,8 +82,8 @@ void Chain::init(Viewer &viewer)
     mediumViscosity = defaultMediumViscosity;
     handleCollisions = true;
     dt = 0.1;
-    groundPosition = qglviewer::Vec(0.0, 0.0, 0.0);
-    groundNormal = qglviewer::Vec(0.0, 0.0, 1.0);
+    groundPosition = qglviewer::Vec(0.0, -7.0, 0.0);
+    groundNormal = qglviewer::Vec(0.0, 1.0, 0.0);
     rebound = 0.5;
     // parameters shared by all particles
     particleMass = 1.0;
@@ -129,11 +129,26 @@ void Chain::createSystemScene()
     qglviewer::Vec vel4 = qglviewer::Vec(0.0, -0.0, 0.0);
     particles.push_back(new Particle(pos4, vel4, particleMass, particleRadius));
 
+    qglviewer::Vec pos5 = pos4 + qglviewer::Vec(0.0, distanceBetweenParticles, 0.0);
+    qglviewer::Vec vel5 = qglviewer::Vec(0.0, -0.0, 0.0);
+    particles.push_back(new Particle(pos5, vel5, particleMass, particleRadius));
+
+    qglviewer::Vec pos6 = pos5 + qglviewer::Vec(0.0, distanceBetweenParticles, 0.0);
+    qglviewer::Vec vel6 = qglviewer::Vec(0.0, -0.0, 0.0);
+    particles.push_back(new Particle(pos6, vel6, particleMass, particleRadius));
+
+    qglviewer::Vec pos7 = pos6 + qglviewer::Vec(0.0, distanceBetweenParticles, 0.0);
+    qglviewer::Vec vel7 = qglviewer::Vec(0.0, -0.0, 0.0);
+    particles.push_back(new Particle(pos6, vel6, particleMass, particleRadius));
+
     // add a spring between the two particle
     springs.push_back(new Spring(particles[0], particles[1], springStiffness, springInitLength, springDamping));
     springs.push_back(new Spring(particles[1], particles[2], springStiffness, springInitLength, springDamping));
     springs.push_back(new Spring(particles[2], particles[3], springStiffness, springInitLength, springDamping));
     springs.push_back(new Spring(particles[3], particles[4], springStiffness, springInitLength, springDamping));
+    springs.push_back(new Spring(particles[4], particles[5], springStiffness, springInitLength, springDamping));
+    springs.push_back(new Spring(particles[5], particles[6], springStiffness, springInitLength, springDamping));
+    springs.push_back(new Spring(particles[6], particles[7], springStiffness, springInitLength, springDamping));
 
 
 
@@ -150,14 +165,14 @@ void Chain::draw()
     glPushAttrib(GL_CURRENT_BIT);
 
 	// Particles
-	glColor3f(1,0,0);
+    glColor3f(0.4,0.4,0.4);
 	std::vector<Particle *>::iterator itP;
 	for (itP = particles.begin(); itP != particles.end(); ++itP) {
 		(*itP)->draw();
 	}
 
 	// Springs
-	glColor3f(1.0, 0.28, 0.0);
+    glColor3f(0.6, 0.6, 0.6);
     glLineWidth(5.0);
 	std::vector<Spring *>::iterator itS;
 	for (itS = springs.begin(); itS != springs.end(); ++itS) {
