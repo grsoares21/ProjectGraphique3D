@@ -1,7 +1,8 @@
 #ifndef GLOBALSCENE_H
 #define GLOBALSCENE_H
-#define NUM_PILARS 10
+#define NUM_PILARS 13
 #define NUM_WALLS 4
+#define NUM_TORCHES 2
 
 #include "dragon.h"
 #include "renderable.h"
@@ -13,6 +14,7 @@
 
 #define OBJECTS 200
 #include <QGLViewer/vec.h>
+#include "teapot.h"
 #include "pilar.h"
 #include "ground.h"
 #include "wall.h"
@@ -25,12 +27,14 @@ private:
     Pilar *pilars[NUM_PILARS];
     Ground *ground;
     Wall *walls[NUM_WALLS];
-    Roof *roof;
     Dragon *dragon;
-    void drawPillars();
+    Torch *torches[NUM_TORCHES];
+    TeaPot *teapot;
+    float animationStep;
+    void drawPillarsAndTorches();
     void drawGround();
     void drawWalls();
-    void drawRoof();
+    void drawImage(void);
 //Constructor
 public:
     GlobalScene();

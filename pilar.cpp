@@ -6,6 +6,8 @@ Pilar::Pilar(bool addTorch)
 	thickness = 4;
     if (addTorch)
         torch = new Torch(2);
+    else
+        torch = NULL;
 }
 
 void Pilar::init(Viewer &viewer){

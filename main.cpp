@@ -1,6 +1,6 @@
 #include "glCheck.h"
 #include "viewer.h"
-#include "dragon.h"
+#include "teapot.h"
 
 #include <qapplication.h>
 
