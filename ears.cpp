@@ -11,7 +11,7 @@ Ears::Ears()
 
 void Ears::init(Viewer &)
 {
-    texture = new Texture("./textures/scales.png");
+    texture = new Texture("./Data/scales.png");
     shader = new Shader("./shaders/texture");
 
     texture0 = glGetUniformLocation( shader->m_program, "texture0");
@@ -111,11 +111,6 @@ void Ears::draw()
         glVertex3f(1.5, 0.0, -0.9);
         glVertexAttrib2f(texcoord0, 1, 1);
         glVertex3f(1.5, 1, -0.9);
-/*
-glVertexAttrib2f(texcoord0, 0, 0);
-glVertexAttrib2f(texcoord0, 0, 1);
-glVertexAttrib2f(texcoord0, 1, 0);
-glVertexAttrib2f(texcoord0, 1, 1);*/
 
     glEnd();
 

@@ -16,7 +16,7 @@ void Head::init(Viewer &viewer)
     fire->init(viewer);
     ears->init(viewer);
     jaw->init(viewer);
-    texture = new Texture("./textures/scales.png");
+    texture = new Texture("./Data/scales.png");
     shader = new Shader("./shaders/texture");
 
     texture0 = glGetUniformLocation( shader->m_program, "texture0");

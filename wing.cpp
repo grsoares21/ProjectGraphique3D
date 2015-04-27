@@ -9,7 +9,7 @@ Wing::Wing()
 
 void Wing::init(Viewer &viewer)
 {
-    texture = new Texture("./textures/wing.jpg");
+    texture = new Texture("./Data/wing.jpg");
     shader = new Shader("./shaders/texture");
 
     texture0 = glGetUniformLocation( shader->m_program, "texture0");
