@@ -8,7 +8,7 @@ void LowerTeeth::draw()
 {
     glPushMatrix();
 
-
+    glColor3f(1.0,1.0,1.0);
     glTranslatef(-1, 0, 0);
     glRotatef(27.5,0,0,1);
     glTranslatef(0.8, -0.85, 0);

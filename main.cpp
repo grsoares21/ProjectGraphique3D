@@ -4,9 +4,6 @@
 
 #include <qapplication.h>
 
-#include "fire.h"
-#include "teapot.h"
-#include "wing.h"
 #include "globalScene.h"
 
 

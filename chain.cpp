@@ -101,7 +101,6 @@ void Chain::init(Viewer &viewer)
     // add a manipulatedFrame to move particle 0 with the mouse
     viewer.setManipulatedFrame(new qglviewer::ManipulatedFrame());
     viewer.manipulatedFrame()->setPosition(getFixedParticlePosition());
-    viewer.setSceneRadius(10.0f);
 
 }
 

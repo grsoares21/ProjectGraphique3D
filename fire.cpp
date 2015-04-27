@@ -29,26 +29,6 @@ void Fire::clear()
 
 }
 
-GLuint Fire::loadTexture(const char *filename)
-{
-	// generates an OpenGL texture id, and store it 
-	GLuint id;
-	glGenTextures(1, &id);
-
-	// load a texture file as a QImage
-	QImage img = QGLWidget::convertToGLFormat(QImage(filename));
-
-	// specify the texture(2D texture, rgba, single file)
-	glBindTexture(GL_TEXTURE_2D, id);
-
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, img.width(), img.height(), 0, GL_RGBA, GL_UNSIGNED_BYTE, img.bits());
-
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
-
-	return id;
-}
-
 float Fire::getIntensity(){
 	return intensity;
 }
@@ -60,10 +40,6 @@ void Fire::setIntensity(float i){
 ///////////////////////////////////////////////////////////////////////////////
 void Fire::init(Viewer &viewer)
 {
-    textureImage = loadTexture("Data/Particle.bmp");
-							// Jump To Texture Loading Routine
-				// Select Our Texture
-    glEnable(GL_TEXTURE_2D);							// Enable Texture Mapping
 
 	for (loop=0;loop<MAX_PARTICLES;loop++)				// Initials All The Textures
 	{
