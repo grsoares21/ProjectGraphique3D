@@ -44,11 +44,11 @@ void Head::draw()
         } else if(animationStep >= 64 && animationStep < 80)
         {
 
-            glRotatef(90,1, 0, 0);
             glRotatef(20,0, 0, 1);
+            glRotatef(90,1, 0, 0);
             fire->draw();
-            glRotatef(-20,0, 0, 1);
             glRotatef(-90,1, 0, 0);
+            glRotatef(-20,0, 0, 1);
 
             glTranslatef(1, 0, 0);
             glRotatef(-sin(64/1.5)*25,0,0,1); // <- relative angle to animate
