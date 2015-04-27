@@ -15,14 +15,12 @@ void Head::init(Viewer &viewer)
 
     ears->init(viewer);
     jaw->init(viewer);
-
     texture = new Texture("./textures/scales.png");
     shader = new Shader("./shaders/texture");
 
     texture0 = glGetUniformLocation( shader->m_program, "texture0");
     texcoord0 = glGetAttribLocation( shader->m_program, "texcoord0");
     glUniform1i(texture0, 0 );
-
 }
 
 
@@ -44,11 +42,14 @@ void Head::draw()
 
         jaw->draw();
 
+
         glPopMatrix();
 
         upperTeeth->draw();
 
         eyes->draw();
+
+
 
         shader->Bind();
         texture->Bind(0);
@@ -112,7 +113,7 @@ void Head::draw()
 void Head::animate(float animationStep)
 {
     this->animationStep = animationStep;
-}
+ }
 
 
 Head::~Head()

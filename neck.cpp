@@ -32,8 +32,6 @@ void Neck::draw()
     glutSolidSphere(0.3, 30, 30);
     glRotatef(-6*neckCurvature, 0, 0, 1);
     chain->draw();
-
-
     glTranslatef(-0.65, 0, 0);
     head->draw();
     glColor3f(1,1,1);

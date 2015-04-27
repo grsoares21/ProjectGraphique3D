@@ -7,7 +7,7 @@ Torch::Torch(float s)
 
 void Torch::init(Viewer &viewer)
 {
-    fire = new Fire(1);
+    fire = new Fire(size);
     fire->init(viewer);
 }
 

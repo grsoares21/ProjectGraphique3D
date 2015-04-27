@@ -13,6 +13,7 @@
 #endif
 
 #include <math.h>
+#include "fire.h"
 #include "cylinder.h"
 #include "cube.h"
 #include "chain.h"

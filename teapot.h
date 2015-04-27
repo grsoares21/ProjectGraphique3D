@@ -9,7 +9,6 @@
 #endif
 
 #include <QGLViewer/vec.h>
-#include "cylinder.h"
 #include "smoke.h"
 
 class TeaPot : public Renderable
@@ -17,6 +16,7 @@ class TeaPot : public Renderable
 //Attributes
 private:
     Smoke *smoke;
+    float animationStep;
 //Constructor
 public:
     TeaPot();
@@ -25,7 +25,7 @@ public:
 public:
     void init(Viewer &);
     void draw();
-    void animate();
+    void animate(float step);
 };
 
 #endif // TEAPOT_H

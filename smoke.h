@@ -62,8 +62,6 @@ public:
 private:
     // Reset the scene (remove all particles and springs)
     void clear();
-    GLuint textureImage;
-    GLuint loadTexture(const char *filename);
 
 // Renderable methods
 public:

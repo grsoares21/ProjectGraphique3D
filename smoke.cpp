@@ -29,26 +29,6 @@ void Smoke::clear()
 
 }
 
-GLuint Smoke::loadTexture(const char *filename)
-{
-    // generates an OpenGL texture id, and store it
-    GLuint id;
-    glGenTextures(1, &id);
-
-    // load a texture file as a QImage
-    QImage img = QGLWidget::convertToGLFormat(QImage(filename));
-
-    // specify the texture(2D texture, rgba, single file)
-    glBindTexture(GL_TEXTURE_2D, id);
-
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, img.width(), img.height(), 0, GL_RGBA, GL_UNSIGNED_BYTE, img.bits());
-
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
-
-    return id;
-}
-
 float Smoke::getIntensity(){
     return intensity;
 }
@@ -60,11 +40,6 @@ void Smoke::setIntensity(float i){
 ///////////////////////////////////////////////////////////////////////////////
 void Smoke::init(Viewer &viewer)
 {
-    textureImage = loadTexture("Data/Particle.bmp");
-                            // Jump To Texture Loading Routine
-                // Select Our Texture
-    glEnable(GL_TEXTURE_2D);							// Enable Texture Mapping
-
     for (loop=0;loop<MAX_PARTICLES;loop++)				// Initials All The Textures
     {
         particle[loop].active=true;								// Make All The Particles Active
@@ -106,7 +81,6 @@ void Smoke::draw()
     glBlendFunc(GL_SRC_ALPHA,GL_ONE);					// Type Of Blending To Perform
     glHint(GL_PERSPECTIVE_CORRECTION_HINT,GL_NICEST);	// Really Nice Perspective Calculations
     glHint(GL_POINT_SMOOTH_HINT,GL_NICEST);				// Really Nice Point Smoothing
-   glBindTexture(GL_TEXTURE_2D, textureImage);
 
     for (loop=0;loop<MAX_PARTICLES;loop++)					// Loop Through All The Particles
     {
@@ -165,7 +139,7 @@ void Smoke::animate()
             if (particle[loop].life<0.0f)					// If Particle Is Burned Out
             {
                 particle[loop].life=1.0f;					// Give It New Life
-                particle[loop].fade=float(rand()%100)/1000.0f+0.012f;	// Random Fade Value
+                particle[loop].fade=float(rand()%100)/1000.0f+0.003f;	// Random Fade Value
                 particle[loop].x=0.0f;						// Center On X Axis
                 particle[loop].y=0.0f;						// Center On Y Axis
                 particle[loop].z=0.0f;						// Center On Z Axis

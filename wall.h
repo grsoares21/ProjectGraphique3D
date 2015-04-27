@@ -2,6 +2,10 @@
 #define WALL_H
 
 #include "renderable.h"
+#include "glCheck.h"
+#include "texture.h"
+#include "shader.h"
+#include <QImage>
 #ifndef __APPLE__
 #include <GL/glut.h>
 #else
@@ -15,6 +19,11 @@ class Wall : public Renderable
 //Attributes
 private:
     float Xsize, Ysize;
+    GLuint loadTexture(const char *filename);
+    Texture *texture;
+    Shader *shader;
+    GLint texture0, texcoord0;
+
 //Constructor
 public:
     Wall(float Xsize, float Ysize);
