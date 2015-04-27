@@ -1,5 +1,7 @@
 #include "dragon.h"
 
+#define deg2rad 0.017453
+
 Dragon::Dragon()
 {
     animationStep = 0;
@@ -17,6 +19,7 @@ Dragon::Dragon()
 }
 
 
+
 void Dragon::init(Viewer &viewer)
 {
     neck->init(viewer);
@@ -31,7 +34,26 @@ void Dragon::draw()
 
         glEnable(GL_NORMALIZE);
 
+
+        if(animationStep < 15)
+            glTranslatef(-2*animationStep, 0.0, 0.0);
+        else if(animationStep >= 15 && animationStep < 37.5)
+            glTranslatef(-30 - sin((animationStep-15)*4*deg2rad)*20, 0.0, sin((animationStep-15)*4*deg2rad)*30);
+        else
+            glTranslatef(-30 - sin(90*deg2rad)*20, 0.0, sin(90*deg2rad)*30);
+
+        if(animationStep >= 15 && animationStep < 37.5)
+            glRotatef((animationStep-15)*4, 0, 1, 0);
+        else if(animationStep > 37.5)
+            glRotatef(90, 0, 1, 0);
+
         glTranslatef(0, sin((-animationStep*2)+60)/3, 0);
+
+        if(animationStep >= 40 && animationStep < 55)
+            glTranslatef(0.0, (animationStep - 40), 0.0);
+        else if(animationStep >= 55)
+            glTranslatef(0.0, 15, 0.0);
+
         body->draw();
 
         glColor3f(0.0, 0.1, 0.0);
@@ -85,6 +107,25 @@ void Dragon::draw()
 
     glPopMatrix();
     glPushMatrix();
+
+
+        if(animationStep < 15)
+            glTranslatef(-2*animationStep, 0.0, 0.0);
+        else if(animationStep >= 15 && animationStep < 37.5)
+            glTranslatef(-30 - sin((animationStep-15)*4*deg2rad)*20, 0.0, sin((animationStep-15)*4*deg2rad)*30);
+        else
+            glTranslatef(-30 - sin(90*deg2rad)*20, 0.0, sin(90*deg2rad)*30);
+
+        if(animationStep >= 15 && animationStep < 37.5)
+            glRotatef((animationStep-15)*4, 0, 1, 0);
+        else if(animationStep > 37.5)
+            glRotatef(90, 0, 1, 0);
+
+        if(animationStep >= 40 && animationStep < 55)
+            glTranslatef(0.0, (animationStep - 40), 0.0);
+        else if(animationStep >= 55)
+            glTranslatef(0.0, 15, 0.0);
+
         glRotatef(270, 0, 1, 0);
 
         glTranslatef(1, 1, 2.5);
@@ -104,6 +145,8 @@ void Dragon::animate()
     frontRightLeg->animate(animationStep+180);
     backLeftLeg->animate(animationStep+180);
     backRightLeg->animate(animationStep-180);
+
+
     rightWing->animate(animationStep);
     leftWing->animate(animationStep);
     neck->animate(animationStep);

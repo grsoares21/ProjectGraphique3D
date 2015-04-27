@@ -27,7 +27,11 @@ void Wing::draw()
 
     glUniform1i(texture0, 0);
 
-    float curvature = sin(animationStep);
+    float curvature = 0;
+    if(animationStep < 40)
+        curvature = -0.75 - sin(animationStep)/4;
+    else
+        curvature = sin(animationStep);
 
     glBegin(GL_POLYGON);
     glNormal3f(0.0, 1.0, 0.0);
