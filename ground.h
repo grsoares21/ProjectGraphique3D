@@ -2,6 +2,10 @@
 #define GROUND_H
 
 #include "renderable.h"
+#include "glCheck.h"
+#include "texture.h"
+#include "shader.h"
+
 #include <QImage>
 #ifndef __APPLE__
 #include <GL/glut.h>
@@ -15,9 +19,9 @@ class Ground : public Renderable
 private:
     float Xsize, Zsize;
     GLuint loadTexture(const char *filename);
-    GLuint textureRock;
-    GLint texture0;
-    GLint texcoord0;
+    Texture *texture;
+    Shader *shader;
+    GLint texture0, texcoord0;
 
 //Constructor
 public:

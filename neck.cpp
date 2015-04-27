@@ -36,6 +36,7 @@ void Neck::draw()
 
     glTranslatef(-0.65, 0, 0);
     head->draw();
+    glColor3f(1,1,1);
     glPopMatrix();
 }
 

@@ -3,6 +3,7 @@
 #define NUM_PILARS 10
 #define NUM_WALLS 4
 
+#include "dragon.h"
 #include "renderable.h"
 #ifndef __APPLE__
 #include <GL/glut.h>
@@ -25,6 +26,7 @@ private:
     Ground *ground;
     Wall *walls[NUM_WALLS];
     Roof *roof;
+    Dragon *dragon;
     void drawPillars();
     void drawGround();
     void drawWalls();

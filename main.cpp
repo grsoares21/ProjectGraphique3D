@@ -20,7 +20,7 @@ int main(int argc, char** argv)
 
 
 	// build your scene here
-    viewer.addRenderable(new Dragon());
+    viewer.addRenderable(new GlobalScene());
 
 	
 	viewer.setWindowTitle("viewer");
