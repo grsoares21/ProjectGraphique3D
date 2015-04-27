@@ -17,6 +17,7 @@
 #include "teapot.h"
 #include "pilar.h"
 #include "ground.h"
+#include "skybox.h"
 #include "wall.h"
 #include "roof.h"
 
@@ -30,8 +31,10 @@ private:
     Dragon *dragon;
     Torch *torches[NUM_TORCHES];
     TeaPot *teapot;
+    Skybox *skybox;
     float animationStep;
     void drawPillarsAndTorches();
+    void drawSkybox();
     void drawGround();
     void drawWalls();
     void drawImage(void);
