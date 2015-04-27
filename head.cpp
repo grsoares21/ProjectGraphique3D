@@ -4,6 +4,7 @@ using namespace std;
 
 Head::Head()
 {
+    fire = new Fire(10);
     ears = new Ears();
     jaw = new Jaw();
     eyes = new Eyes();
@@ -12,7 +13,7 @@ Head::Head()
 
 void Head::init(Viewer &viewer)
 {
-
+    fire->init(viewer);
     ears->init(viewer);
     jaw->init(viewer);
     texture = new Texture("./textures/scales.png");
@@ -28,7 +29,11 @@ void Head::draw()
 {
         glPushMatrix();
 
-
+        glRotatef(20,0, 0, 1);
+        glTranslatef(-1, 0, 0);
+        fire->draw();
+        glTranslatef(1, 0, 0);
+        glRotatef(-20,0, 0, 1);
 
         glTranslatef(-0.5, 0, 0);
 
@@ -112,6 +117,7 @@ void Head::draw()
 
 void Head::animate(float animationStep)
 {
+    fire->animate();
     this->animationStep = animationStep;
  }
 

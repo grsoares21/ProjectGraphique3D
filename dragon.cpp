@@ -22,6 +22,7 @@ Dragon::Dragon()
 
 void Dragon::init(Viewer &viewer)
 {
+
     neck->init(viewer);
     rightWing->init(viewer);
     leftWing->init(viewer);
@@ -49,10 +50,10 @@ void Dragon::draw()
 
         glTranslatef(0, sin((-animationStep*2)+60)/3, 0);
 
-        if(animationStep >= 40 && animationStep < 55)
+        if(animationStep >= 40 && animationStep < 58)
             glTranslatef(0.0, (animationStep - 40), 0.0);
-        else if(animationStep >= 55)
-            glTranslatef(0.0, 15, 0.0);
+        else if(animationStep >= 58)
+            glTranslatef(0.0, 18, 0.0);
 
         body->draw();
 
@@ -121,10 +122,10 @@ void Dragon::draw()
         else if(animationStep > 37.5)
             glRotatef(90, 0, 1, 0);
 
-        if(animationStep >= 40 && animationStep < 55)
+        if(animationStep >= 40 && animationStep < 58)
             glTranslatef(0.0, (animationStep - 40), 0.0);
-        else if(animationStep >= 55)
-            glTranslatef(0.0, 15, 0.0);
+        else if(animationStep >= 58)
+            glTranslatef(0.0, 18, 0.0);
 
         glRotatef(270, 0, 1, 0);
 

@@ -2,8 +2,8 @@
 #define HEAD_H
 
 #include <math.h>
-
 #include "ears.h"
+#include "fire.h"
 #include "jaw.h"
 #include "eyes.h"
 
@@ -30,7 +30,7 @@ private:
     UpperTeeth *upperTeeth;
     Texture *texture;
     Shader *shader;
-
+    Fire *fire;
 //Constructor
 public:
     Head();

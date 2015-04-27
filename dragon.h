@@ -15,7 +15,6 @@
 #else
 #include <GLUT/glut.h>
 #endif
-
 #include "body.h"
 #include "leg.h"
 #include "tail.h"
@@ -32,7 +31,6 @@ private:
     Body *body;
     Neck *neck;
     Tail *tail;
-
     Wing *rightWing;
     Wing *leftWing;
     Leg *frontLeftLeg;

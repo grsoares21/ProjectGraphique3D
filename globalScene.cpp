@@ -26,6 +26,9 @@ void GlobalScene::init(Viewer &viewer)
     teapot = new TeaPot();
     teapot->init(viewer);
 
+    dragon = new Dragon();
+    dragon->init(viewer);
+
     ground = new Ground(100,100);
     ground->init(viewer);
     for (int i = 0; i < NUM_WALLS; i++){
@@ -33,8 +36,6 @@ void GlobalScene::init(Viewer &viewer)
        walls[i]->init(viewer);
     }
 
-    dragon = new Dragon();
-    dragon->init(viewer);
 
  }
 
