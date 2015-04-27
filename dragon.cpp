@@ -150,6 +150,7 @@ void Dragon::animate()
 
     rightWing->animate(animationStep);
     leftWing->animate(animationStep);
+
     neck->animate(animationStep);
 
     tail->animate(animationStep);

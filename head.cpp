@@ -29,11 +29,6 @@ void Head::draw()
 {
         glPushMatrix();
 
-        glRotatef(20,0, 0, 1);
-        glTranslatef(-1, 0, 0);
-        fire->draw();
-        glTranslatef(1, 0, 0);
-        glRotatef(-20,0, 0, 1);
 
         glTranslatef(-0.5, 0, 0);
 
@@ -41,9 +36,32 @@ void Head::draw()
 
         glPushMatrix();
 
-        glTranslatef(1, 0, 0);
-        glRotatef(-sin(animationStep)*25,0,0,1); // <- relative angle to animate
-        glTranslatef(-1, 0, 0);
+        if(animationStep >= 60 && animationStep < 64)
+        {
+            glTranslatef(1, 0, 0);
+            glRotatef(-sin(animationStep/1.5)*25,0,0,1); // <- relative angle to animate
+            glTranslatef(-1, 0, 0);
+        } else if(animationStep >= 64 && animationStep < 80)
+        {
+
+            glRotatef(90,1, 0, 0);
+            glRotatef(20,0, 0, 1);
+            fire->draw();
+            glRotatef(-20,0, 0, 1);
+            glRotatef(-90,1, 0, 0);
+
+            glTranslatef(1, 0, 0);
+            glRotatef(-sin(64/1.5)*25,0,0,1); // <- relative angle to animate
+            glTranslatef(-1, 0, 0);
+        }
+        else
+        {
+            glTranslatef(1, 0, 0);
+            glRotatef((-sin(animationStep)-2)*2.5,0,0,1); // <- relative angle to animate
+            glTranslatef(-1, 0, 0);
+        }
+
+
 
         jaw->draw();
 
