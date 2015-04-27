@@ -2,6 +2,7 @@
 #define DRAGON_H
 
 #include <math.h>
+#include <iostream>
 
 #include "neck.h"
 #include "body.h"
