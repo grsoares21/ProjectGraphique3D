@@ -1,5 +1,7 @@
 #include "neck.h"
 
+#define deg2rad 0.017453
+
 Neck::Neck()
 {
     head = new Head();
@@ -16,8 +18,17 @@ void Neck::draw()
 {
     glPushMatrix();
 
-    float neckCurvature = 8 - (sin(animationStep)) * 4;
 
+    float neckCurvature = 4;
+
+    if(animationStep > 58 && animationStep < 64)
+        neckCurvature = 4 + (sin((animationStep-58)*deg2rad*20)) * 7;
+    else if(animationStep >= 64 && animationStep < 80)
+        neckCurvature = 11;
+    else if(animationStep >= 80 && animationStep < 86)
+        neckCurvature = 4 + (sin((animationStep-58)*deg2rad*20)) * 7;
+    else
+        neckCurvature = 4 + sin(animationStep) * 2;
 
     for(int i = 0; i < 6; i++)
     {
@@ -29,6 +40,7 @@ void Neck::draw()
         glTranslatef(0, 0.25, 0);
         glRotatef(neckCurvature, 0, 0, 1);
     }
+
     glutSolidSphere(0.3, 30, 30);
     glRotatef(-6*neckCurvature, 0, 0, 1);
     chain->draw();
