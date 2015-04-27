@@ -1,6 +1,10 @@
 #ifndef TEAPOT_H
 #define TEAPOT_H
 
+#include "light.h"
+#include "material.h"
+#include "shader.h"
+
 #include "renderable.h"
 #ifndef __APPLE__
 #include <GL/glut.h>
@@ -17,6 +21,8 @@ class TeaPot : public Renderable
 private:
     Smoke *smoke;
     float animationStep;
+    Shader *shader;
+
 //Constructor
 public:
     TeaPot();
