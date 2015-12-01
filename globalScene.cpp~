@@ -80,6 +80,7 @@ void GlobalScene::drawGround(){
     glPopMatrix();
 }
 
+
 void GlobalScene::drawSkybox(){
     //glPushMatrix();
     glScalef(2000,2000,2000);
